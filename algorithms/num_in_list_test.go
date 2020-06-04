@@ -7,7 +7,10 @@ import (
 // TestNumInList will test if NumInList works
 func TestNumInList(t *testing.T) {
 	t.Run("[1,2,3,4,5]", testNumInListFunc([]int{1,2,3,4,5}, 5, true))
+	t.Run("[1,2,3,4,5]", testNumInListFunc([]int{1,2,3,4,5}, -5, false))
 	t.Run("[1,2,3,4,5]", testNumInListFunc([]int{1,2,3,4,5}, 0, false))
+	t.Run("[]", testNumInListFunc([]int{}, 1, false))
+	t.Run("nil", testNumInListFunc(nil, 1, false))
 }
 
 func testNumInListFunc(xi []int, i int, expected bool) func(*testing.T) {
