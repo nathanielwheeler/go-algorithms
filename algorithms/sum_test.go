@@ -4,7 +4,6 @@ import (
 	"testing"
 )
 
-// TestSum will test if Sum works
 func TestSum(t *testing.T) {
 	t.Run("[1,2,3,4,5]", testSumFunc([]int{1, 2, 3}, 6))
 	t.Run("[1,2,3,4,5]", testSumFunc([]int{1, 2, 3, -6}, 0))
