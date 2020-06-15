@@ -5,7 +5,7 @@ import "testing"
 func TestSpongetext(t *testing.T) {
 	t.Run("I need healthcare", testSpongetextFunc("I need healthcare", "i NeEd HeAlThCaRe"))
 	t.Run("Don't use that weird spongebob mocking meme", testSpongetextFunc("Don't use that weird spongebob mocking meme", "dOn'T uSe ThAt WeIrD sPoNgEbOb MoCkInG mEmE"))
-	t.Run("As a man, my viewpoint is—", testSpongetextFunc("As a man, my viewpoint is—", "aS a MaN, mY vIeWpOiNt Is"))
+	t.Run("As a man, my viewpoint is—", testSpongetextFunc("As a man, my viewpoint is—", "aS a MaN, mY vIeWpOiNt Is—"))
 	t.Run("All lives matter", testSpongetextFunc("All lives matter", "aLl LiVeS mAtTeR"))
 }
 
