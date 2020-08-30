@@ -1,4 +1,4 @@
-package main
+package config
 
 import (
 	"os"
@@ -7,7 +7,7 @@ import (
 )
 
 const (
-	configFile = "config.yml"
+	configFile = "algorithms.yml"
 )
 
 // Config holds configuration variables
@@ -43,6 +43,7 @@ type AlgorithmConfig struct {
 // ArgumentConfig holds metadata and configuration data an argument to an algorithm
 type ArgumentConfig struct {
 	Name    string `yaml:"name"`
+	Type    string `yaml:"type"`
 	Desc    string `yaml:"desc"`
 	Default string `yaml:"default"`
 }

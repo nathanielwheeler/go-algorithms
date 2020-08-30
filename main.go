@@ -4,15 +4,16 @@ import (
 	"fmt"
 	"reflect"
 
-  // This is referenced by the FuncMaps stored in config.yml
+	// This is referenced by the FuncMaps stored in config.yml
 	_ "github.com/nathanielwheeler/goalg/algorithms"
+	"github.com/nathanielwheeler/goalg/config"
 
 	"github.com/thatisuday/commando"
 )
 
 func main() {
-  cfg := LoadConfig()
-  
+	cfg := config.LoadConfig()
+
 	// Initialize commando
 	commando.
 		SetExecutableName("alg").
@@ -27,15 +28,15 @@ func main() {
 			SetDescription(v.FullDesc)
 
 		for _, v := range v.Arguments {
-      c.AddArgument(v.Name, v.Desc, v.Default)
+			c.AddArgument(v.Name, v.Desc, v.Default)
     }
-    
-    c.SetAction(func(args map[string]commando.ArgValue, flags map[string]commando.FlagValue) {
-      CallAlgorithm(v.FuncMap, k, args)
-    })
-  }
-  
-  commando.Parse(nil)
+
+		c.SetAction(func(args map[string]commando.ArgValue, flags map[string]commando.FlagValue) {
+			CallAlgorithm(v.FuncMap, k, args)
+		})
+	}
+
+	commando.Parse(nil)
 }
 
 // CallAlgorithm will take in funcmap, funcname, and arguments, and reflect them to the appropriate algorithms
