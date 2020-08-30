@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"os"
 
 	"gopkg.in/yaml.v2"
@@ -17,11 +16,11 @@ type Config struct {
 }
 
 // LoadConfig will load production or development configuration files.
-func LoadConfig(configReq bool) Config {
+func LoadConfig() Config {
 	f, err := os.Open(configFile)
 	if err != nil {
 		panic("No configuration file detected!")
-	} 
+	}
 	defer f.Close()
 	// Decode file and return Config struct
 	var c Config
@@ -34,7 +33,6 @@ func LoadConfig(configReq bool) Config {
 
 // AlgorithmConfig holds metadata and configuration data for an algorithm
 type AlgorithmConfig struct {
-	Name      string                 `yaml:"name"`
 	FuncMap   map[string]interface{} `yaml:"funcmap"`
 	ShortDesc string                 `yaml:"shortdesc"`
 	FullDesc  string                 `yaml:"fulldesc"`
@@ -44,7 +42,7 @@ type AlgorithmConfig struct {
 
 // ArgumentConfig holds metadata and configuration data an argument to an algorithm
 type ArgumentConfig struct {
-	Name    string      `yaml:"name"`
-	Desc    string      `yaml:"desc"`
-	Default interface{} `yaml:"default"`
+	Name    string `yaml:"name"`
+	Desc    string `yaml:"desc"`
+	Default string `yaml:"default"`
 }
